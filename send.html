@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Live Video Stream</title>
+    <style>
+        .screen {
+            border: 1px solid #DDD;
+            background: #DDD;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h1>Make Live Stream</h1>
+                <form>
+                    <div class="form-group">
+                        <input id="select_camera" type="radio" name="play_type" value="camera" checked>
+                        <label for="select_camera">Live with camera</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="select_video" type="radio" name="play_type" value="files">
+                        <label for="select_video">Live with video (Click to choose)</label>
+                        <input type="file" name="file_selector" id="file_selector" style="display: none;" />
+                    </div>
+                </form>
+
+                <div class="form-group">
+                    <button id="start_push" class="btn btn-success">Start Push</button>
+                    <button id="stop_push" class="btn btn-primary">Stop Push</button>
+                </div>
+                <div class="form-group">
+                    <label for="compress_precent">Compress Percent:</label>
+                    <input class="form-control w-50" type="text" name="compress_precent" id="compress_precent" value="70">
+                </div>
+            </div>
+            
+            <!-- Video -->
+            <div class="col-md-8 screen">
+                <p id="message"></p>
+                <div class="form-group">
+                    <video controls="controls" style="display: none" id="video"></video>
+                </div>
+                <div class="form-group">
+                    <canvas id="canvas" style="display: none"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="socket.js"></script>
+  </body>
+</html>
